@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -196,6 +196,17 @@
       display: block;
     }
 
+    .hero-tu {
+      font-size: 0.52em;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      display: block;
+      margin-bottom: -0.1em;
+      font-family: 'Inter', sans-serif;
+    }
+
     .hero-desc {
       font-size: 15px;
       line-height: 1.8;
@@ -351,6 +362,231 @@
       overflow: hidden;
       white-space: nowrap;
     }
+
+    /* ── HERO VISUAL ELEMENTS ── */
+    .hero-visual {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 48%;
+      pointer-events: none;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Giant glow behind product */
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 55% 50%, rgba(184,150,62,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 30%, rgba(74,124,95,0.22) 0%, transparent 45%);
+    }
+
+    /* Large product bottle image */
+    .hero-bottle {
+      position: relative;
+      z-index: 2;
+      width: 260px;
+      height: 340px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow:
+        0 40px 100px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(255,255,255,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+      animation: float 5s ease-in-out infinite;
+      margin-top: -20px;
+    }
+
+    .hero-bottle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* Rotating botanical ring around bottle */
+    .hero-ring {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      border: 1px dashed rgba(184,150,62,0.3);
+      z-index: 1;
+      animation: spin 25s linear infinite;
+    }
+
+    .hero-ring::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--gold);
+    }
+
+    .hero-ring-2 {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      border: 1px solid rgba(168,197,160,0.12);
+      z-index: 1;
+      animation: spin 40s linear infinite reverse;
+    }
+
+    /* Product info card — repositioned larger */
+    .hero-product-card {
+      position: absolute;
+      right: 18px;
+      top: 22%;
+      background: rgba(15,38,25,0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(184,150,62,0.35);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 210px;
+      animation: fadeUp 1s 0.6s ease both;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(184,150,62,0.1);
+      z-index: 5;
+      pointer-events: auto;
+    }
+
+    .hero-product-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-product-tag {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 3px;
+    }
+
+    .hero-product-name {
+      font-size: 13px;
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .hero-product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .hero-product-stars {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .hero-product-stars span {
+      color: rgba(255,255,255,0.45);
+      font-size: 10px;
+      margin-left: 2px;
+    }
+
+    /* Ingredient badge */
+    .hero-ingredient-badge {
+      position: absolute;
+      left: 14px;
+      top: 20%;
+      background: rgba(74,124,95,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(168,197,160,0.4);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      animation: fadeUp 1s 0.4s ease both;
+      z-index: 5;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-ingredient-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      animation: pulseBadge 2s ease-in-out infinite;
+    }
+
+    /* Rating pill — bottom */
+    .hero-rating-pill {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10%;
+      background: rgba(15,38,25,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 1s 0.8s ease both;
+      z-index: 5;
+      white-space: nowrap;
+      pointer-events: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .hero-rating-emoji {
+      font-size: 28px;
+    }
+
+    .hero-rating-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .hero-rating-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .hero-botanical { display: none; }
+
 
     .strip-inner {
       display: inline-flex;
@@ -732,7 +968,7 @@
     /* ── INGREDIENTS ── */
     .ingredients {
       padding: 100px 60px;
-      background: var(--green-deep);
+      background: linear-gradient(160deg, #0f2619 0%, var(--green-deep) 40%, #162d20 100%);
       position: relative;
       overflow: hidden;
     }
@@ -741,12 +977,30 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(184, 150, 62, 0.08) 0%, transparent 60%);
+      background:
+        radial-gradient(ellipse at 15% 50%, rgba(184, 150, 62, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(74, 124, 95, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 90%, rgba(184, 150, 62, 0.06) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* Decorative large circle */
+    .ingredients::after {
+      content: '';
+      position: absolute;
+      right: -200px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 150, 62, 0.06);
+      pointer-events: none;
     }
 
     .ing-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 64px;
       position: relative;
       z-index: 2;
     }
@@ -765,27 +1019,239 @@
       font-size: clamp(36px, 4vw, 54px);
       font-weight: 400;
       color: var(--white);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .ing-header p {
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.55);
       font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── INGREDIENT GRID ── */
+    .ing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Star ingredient spans full width on top */
+    .ing-item.star {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      background: linear-gradient(120deg, rgba(184, 150, 62, 0.16) 0%, rgba(184, 150, 62, 0.04) 100%);
+      border: 1px solid rgba(184, 150, 62, 0.3);
+      border-radius: 16px 16px 0 0;
+      padding: 36px 48px;
+      margin-bottom: 2px;
+    }
+
+    .ing-item.star .ing-icon-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(184, 150, 62, 0.3), rgba(184, 150, 62, 0.1));
+      border: 2px solid rgba(184, 150, 62, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      flex-shrink: 0;
+      box-shadow: 0 0 40px rgba(184, 150, 62, 0.2);
+    }
+
+    .ing-item.star .ing-content {
+      flex: 1;
+    }
+
+    .ing-item.star .ing-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .ing-item.star .ing-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .ing-item.star .ing-benefit {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .ing-item.star .ing-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 16px;
+    }
+
+    .ing-stat {
+      text-align: center;
+    }
+
+    .ing-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--gold-light);
+    }
+
+    .ing-stat-label {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    /* Regular ingredient cards */
+    .ing-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 28px 28px 24px;
+      transition: all 0.35s;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .ing-item:not(.star):hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(184, 150, 62, 0.3);
+      transform: translateY(-4px);
+      z-index: 2;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .ing-item:not(.star):hover .ing-icon-wrap {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 0 30px rgba(184, 150, 62, 0.25);
+    }
+
+    /* Subtle top-left glow on hover */
+    .ing-item:not(.star)::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184, 150, 62, 0.12) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .ing-item:not(.star):hover::before {
+      opacity: 1;
+    }
+
+    /* Bottom border of grid rows */
+    .ing-item:not(.star) {
+      border-top: none;
+      border-right: none;
+    }
+
+    .ing-item:not(.star):nth-child(3n) {
+      border-right: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .ing-item:not(.star):nth-last-child(-n+3) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 0 0 4px 4px;
+    }
+
+    .ing-item:not(.star):last-child {
+      border-radius: 0 0 16px 0;
+    }
+
+    .ing-item:not(.star):nth-last-child(3) {
+      border-radius: 0 0 0 16px;
+    }
+
+    .ing-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 16px;
+      transition: all 0.35s;
     }
 
     .ing-name {
       font-family: 'Playfair Display', serif;
-      font-size: 19px;
+      font-size: 18px;
       color: var(--white);
       margin-bottom: 8px;
       font-weight: 400;
     }
 
     .ing-benefit {
-      font-size: 12px;
+      font-size: 12.5px;
       color: rgba(255, 255, 255, 0.5);
-      line-height: 1.6;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .ing-bar-wrap {
+      margin-top: 14px;
+    }
+
+    .ing-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .ing-bar {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .ing-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform-origin: left;
+      animation: barGrow 1.2s ease both;
+    }
+
+    @keyframes barGrow {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
     }
 
     /* ── PROCESS ── */
@@ -2241,6 +2707,927 @@
       color: var(--text-mid);
       line-height: 1.8;
     }
+
+    /* ── SALE BADGE on products ── */
+    .sale-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: linear-gradient(135deg, #e8293b, #c0001a);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(232, 41, 59, 0.45);
+      animation: pulseBadge 2s ease-in-out infinite;
+    }
+
+    .price-old {
+      font-size: 13px;
+      color: #aaa;
+      text-decoration: line-through;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      margin-right: 6px;
+    }
+
+    /* ── COMBO SECTION ── */
+    .combos {
+      padding: 100px 60px;
+      background: linear-gradient(160deg, var(--green-deep) 0%, #1c4232 50%, #243d2e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .combos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(184, 150, 62, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(74, 124, 95, 0.15) 0%, transparent 50%);
+    }
+
+    .combos-header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .combos-header .section-label {
+      color: var(--gold-light);
+      justify-content: center;
+    }
+
+    .combos-header .section-label::before {
+      background: var(--gold-light);
+    }
+
+    .combos-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .combos-header h2 em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .combos-header p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+    }
+
+    .combo-timer-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(184, 150, 62, 0.18);
+      border: 1px solid rgba(184, 150, 62, 0.4);
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+    }
+
+    .combo-timer-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulseBadge 1s ease-in-out infinite;
+    }
+
+    .combos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .combo-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s;
+      position: relative;
+      backdrop-filter: blur(8px);
+    }
+
+    .combo-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(184, 150, 62, 0.5);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(184, 150, 62, 0.2);
+    }
+
+    .combo-card.bestseller {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(184, 150, 62, 0.3), 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .combo-popular-tag {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--gold), #d4af6a);
+      color: var(--green-deep);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 0 0 10px 10px;
+      white-space: nowrap;
+    }
+
+    .combo-img-strip {
+      padding: 28px 24px 16px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.15);
+      min-height: 120px;
+    }
+
+    .combo-img-strip .product-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .combo-card:hover .product-thumb {
+      transform: scale(1.06);
+    }
+
+    .combo-img-strip .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .combo-plus {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .combo-body {
+      padding: 20px 24px 28px;
+    }
+
+    .combo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+
+    .combo-desc {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .combo-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+
+    .combo-item-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .combo-item-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    .combo-pricing {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .combo-price-new {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--gold-light);
+    }
+
+    .combo-price-old {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.35);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .combo-save-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #e8293b, #c0001a);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .combo-gift {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(184, 150, 62, 0.12);
+      border: 1px solid rgba(184, 150, 62, 0.25);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: var(--gold-light);
+    }
+
+    .combo-gift-icon {
+      font-size: 18px;
+    }
+
+    .combo-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--gold);
+      color: var(--green-deep);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .combo-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 150, 62, 0.35);
+    }
+
+    .combo-card.bestseller .combo-btn {
+      background: linear-gradient(90deg, var(--gold), #d4af6a);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE – TABLET (≤ 1024px)
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 14px 30px;
+      }
+
+      .hero {
+        padding: 100px 30px 60px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .philosophy {
+        padding: 70px 30px;
+        gap: 50px;
+      }
+
+      .products {
+        padding: 70px 30px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-card.featured {
+        grid-column: span 2;
+      }
+
+      .combos {
+        padding: 70px 30px;
+      }
+
+      .combos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ingredients {
+        padding: 70px 30px;
+      }
+
+      .ing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ing-item.star {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 28px 28px;
+      }
+
+      .ing-item.star .ing-item-wrap {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+      }
+
+      .ing-item[style*="grid-column:1/3"] {
+        grid-column: 1 / -1;
+      }
+
+      .process {
+        padding: 70px 30px;
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .testimonials {
+        padding: 70px 30px;
+      }
+
+      .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 36px 30px;
+      }
+
+      .footer-bottom-links {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px 30px;
+      }
+
+      .footer-bottom {
+        padding: 16px 30px;
+      }
+
+      .footer-social {
+        justify-content: flex-start;
+      }
+
+      .footer-social-title {
+        text-align: left;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE – MOBILE (≤ 768px)
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* NAV */
+      nav {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        order: 3;
+        width: 100%;
+        padding: 8px 0 4px;
+        border-top: 1px solid rgba(184, 150, 62, 0.1);
+      }
+
+      .nav-links a {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .nav-cta {
+        padding: 7px 14px !important;
+      }
+
+      .logo-emblem {
+        width: 70px;
+        height: 70px;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 140px 20px 60px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 10vw, 56px);
+      }
+
+      .hero-desc {
+        font-size: 14px;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        text-align: center;
+        padding: 13px 28px;
+        font-size: 10px;
+      }
+
+      .hero-stats {
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 36px;
+      }
+
+      .stat-num {
+        font-size: 28px;
+      }
+
+      /* STRIP */
+      .strip-inner {
+        gap: 36px;
+      }
+
+      .strip-item {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      /* PHILOSOPHY / BRAND STORY */
+      .philosophy {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+        gap: 40px;
+      }
+
+      .philosophy-visual {
+        height: 360px;
+      }
+
+      .philo-card-1 {
+        width: 220px;
+        height: 280px;
+      }
+
+      .philo-card-2 {
+        width: 160px;
+        height: 200px;
+      }
+
+      .philosophy h2 {
+        font-size: clamp(28px, 7vw, 38px);
+      }
+
+      .philosophy-features {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .feat {
+        padding: 14px;
+      }
+
+      /* PRODUCTS */
+      .products {
+        padding: 60px 20px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .product-card.featured {
+        grid-column: span 1;
+      }
+
+      .product-card.featured .product-img {
+        height: 260px;
+      }
+
+      .product-img {
+        height: 220px;
+      }
+
+      .products-header h2 {
+        font-size: clamp(26px, 7vw, 36px);
+      }
+
+      /* COMBOS */
+      .combos {
+        padding: 60px 20px;
+      }
+
+      .combos-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .combos-header h2 {
+        font-size: clamp(26px, 7vw, 36px);
+      }
+
+      .combo-timer-bar {
+        font-size: 11px;
+        padding: 7px 14px;
+      }
+
+      .combo-img-strip {
+        min-height: 100px;
+      }
+
+      .combo-img-strip .product-thumb {
+        width: 54px;
+        height: 54px;
+      }
+
+      /* INGREDIENTS */
+      .ingredients {
+        padding: 60px 20px;
+      }
+
+      .ing-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .ing-item.star {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px 20px;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .ing-item.star .ing-icon-wrap {
+        width: 72px;
+        height: 72px;
+        font-size: 32px;
+      }
+
+      .ing-item.star .ing-name {
+        font-size: 22px;
+      }
+
+      .ing-item.star .ing-stats {
+        gap: 20px;
+      }
+
+      .ing-stat-num {
+        font-size: 20px;
+      }
+
+      .ing-item:not(.star) {
+        border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+        border-radius: 0 !important;
+      }
+
+      .ing-item[style*="grid-column:1/3"] {
+        grid-column: 1 / -1 !important;
+      }
+
+      .ing-item:last-child {
+        border-radius: 0 0 12px 12px !important;
+      }
+
+      .ing-header h2 {
+        font-size: clamp(26px, 7vw, 36px);
+      }
+
+      /* PROCESS */
+      .process {
+        padding: 60px 20px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      /* TESTIMONIALS */
+      .testimonials {
+        padding: 60px 20px;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .testi-card {
+        padding: 24px;
+      }
+
+      /* CTA */
+      .cta-section {
+        padding: 60px 20px;
+      }
+
+      .cta-form {
+        flex-direction: column;
+        border-radius: 8px;
+        overflow: visible;
+        border: none;
+        box-shadow: none;
+        gap: 10px;
+      }
+
+      .cta-form input {
+        border: 1px solid var(--cream-dark);
+        border-radius: 4px;
+        width: 100%;
+        padding: 14px 16px;
+      }
+
+      .cta-form button {
+        border-radius: 4px;
+        padding: 14px;
+        width: 100%;
+      }
+
+      /* CART SIDEBAR */
+      .cart-sidebar {
+        width: 100%;
+        right: -100%;
+      }
+
+      /* MODALS */
+      .modal-box {
+        grid-template-columns: 1fr;
+        max-height: 95vh;
+        border-radius: 12px;
+      }
+
+      .modal-img {
+        min-height: 240px;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .modal-img img {
+        max-height: 240px;
+      }
+
+      .modal-body {
+        padding: 24px 20px;
+      }
+
+      .checkout-box {
+        padding: 28px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .info-box {
+        padding: 28px 20px;
+      }
+
+      /* FOOTER */
+      .footer-top {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 28px;
+      }
+
+      .footer-logo-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .footer-bottom-links {
+        grid-template-columns: 1fr 1fr;
+        padding: 24px 20px;
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 16px 20px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE – SMALL MOBILE (≤ 480px)
+    ═══════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links li:nth-child(4) {
+        display: none;
+      }
+
+      /* hide Combo on tiny screen */
+      .hero {
+        padding: 130px 16px 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 9vw, 46px);
+        line-height: 1.1;
+      }
+
+      .hero-stats {
+        gap: 16px;
+      }
+
+      .philosophy {
+        padding: 48px 16px;
+      }
+
+      .philosophy-features {
+        grid-template-columns: 1fr;
+      }
+
+      .philosophy-visual {
+        display: none;
+      }
+
+      .products {
+        padding: 48px 16px;
+      }
+
+      .combos {
+        padding: 48px 16px;
+      }
+
+      .ingredients {
+        padding: 48px 16px;
+      }
+
+      .process {
+        padding: 48px 16px;
+      }
+
+      .testimonials {
+        padding: 48px 16px;
+      }
+
+      .cta-section {
+        padding: 48px 16px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom-links {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-box {
+        border-radius: 0;
+        max-height: 100vh;
+        height: 100vh;
+      }
+
+      .combo-body {
+        padding: 16px 18px 20px;
+      }
+
+      .combo-name {
+        font-size: 18px;
+      }
+
+      .combo-price-new {
+        font-size: 24px;
+      }
+    }
+
+    /* ── HAMBURGER MENU ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--green-deep);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        z-index: 105;
+        transform: translateX(-100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        padding: 0;
+      }
+
+      .nav-links.mobile-open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 18px !important;
+        letter-spacing: 3px;
+      }
+
+      .nav-cta {
+        padding: 12px 28px !important;
+        font-size: 13px !important;
+      }
+
+      nav>div {
+        order: unset;
+      }
+    }
   </style>
 </head>
 
@@ -2252,11 +3639,15 @@
       <div class="logo-emblem"></div>
     </a>
     <div style="display:flex;align-items:center;gap:16px">
-      <ul class="nav-links">
-        <li><a href="#products">Sản phẩm</a></li>
-        <li><a href="#ingredients">Thành phần</a></li>
-        <li><a href="#about">Về chúng tôi</a></li>
-        <li><a href="#contact" class="nav-cta">Mua ngay</a></li>
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#products" onclick="closeMobileMenu()">Sản phẩm</a></li>
+        <li><a href="#combos" onclick="closeMobileMenu()">Combo</a></li>
+        <li><a href="#ingredients" onclick="closeMobileMenu()">Thành phần</a></li>
+        <li><a href="#about" onclick="closeMobileMenu()">Về chúng tôi</a></li>
+        <li><a href="#contact" class="nav-cta" onclick="closeMobileMenu()">Mua ngay</a></li>
       </ul>
       <button class="nav-cart-btn" id="cartBtn" onclick="openCart()" title="Giỏ hàng">
         🛒
@@ -2273,7 +3664,7 @@
         <div class="hero-badge-dot"></div>
         <span>100% Thiên Nhiên · Chiết Xuất Lá Trầu Không</span>
       </div>
-      <h1>Vẻ Đẹp<br>Từ <em>Thiên Nhiên</em></h1>
+      <h1>Vẻ Đẹp<span class="hero-tu">Từ</span><em>Thiên Nhiên</em></h1>
       <p class="hero-desc">Mộc Trầu mang đến dòng skincare thuần tự nhiên được chiết xuất từ lá trầu không – loại thảo
         dược quý trong dân gian Việt Nam, kết hợp công nghệ hiện đại để chăm sóc làn da toàn diện.</p>
       <div class="hero-btns">
@@ -2296,28 +3687,41 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-circle"></div>
-      <div class="hero-circle-2"></div>
-      <div class="hero-circle-3"></div>
-      <!-- Floating leaves -->
-      <div class="floating-leaf" style="right:220px;top:18%">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M30 5 C15 10 8 22 10 35 C12 48 22 55 30 55 C38 55 48 48 50 35 C52 22 45 10 30 5Z" fill="#4a7c5f"
-            opacity="0.6" />
-          <path d="M30 5 C30 5 28 20 28 30 C28 40 29 52 30 55" stroke="#a8c5a0" stroke-width="1.5" fill="none" />
-        </svg>
+      <div class="hero-glow"></div>
+      <div class="hero-ring-2"></div>
+      <div class="hero-ring"></div>
+
+      <!-- Big product bottle -->
+      <div class="hero-bottle">
+        <img src="images/z7796173775557_c56f30f6afef167b21aec95a61f9487a.jpg" alt="Mộc Trầu Cleansing Water">
       </div>
-      <div class="floating-leaf" style="right:90px;top:42%;animation-delay:2s">
-        <svg width="44" height="44" viewBox="0 0 60 60" fill="none">
-          <path d="M30 5 C15 10 8 22 10 35 C12 48 22 55 30 55 C38 55 48 48 50 35 C52 22 45 10 30 5Z" fill="#2d5a3d"
-            opacity="0.5" />
-        </svg>
+
+      <!-- Ingredient badge top-left -->
+      <div class="hero-ingredient-badge">
+        <div class="hero-ingredient-dot"></div>
+        Lá Trầu Không
       </div>
-      <div class="floating-leaf" style="right:300px;top:68%;animation-delay:4s">
-        <svg width="36" height="36" viewBox="0 0 60 60" fill="none">
-          <path d="M30 5 C15 10 8 22 10 35 C12 48 22 55 30 55 C38 55 48 48 50 35 C52 22 45 10 30 5Z" fill="#4a7c5f"
-            opacity="0.4" />
-        </svg>
+
+      <!-- Product info card top-right -->
+      <div class="hero-product-card">
+        <div class="hero-product-img">
+          <img src="images/z7796173785993_b75c945324a5e94b77345b374b302175.jpg" alt="Spot Treatment">
+        </div>
+        <div class="hero-product-info">
+          <div class="hero-product-tag">Hot</div>
+          <div class="hero-product-name">Spot Treatment</div>
+          <div class="hero-product-price">159.000đ</div>
+          <div class="hero-product-stars">★★★★★ <span>4.8</span></div>
+        </div>
+      </div>
+
+      <!-- Rating pill bottom -->
+      <div class="hero-rating-pill">
+        <span class="hero-rating-emoji">🌿</span>
+        <div>
+          <div class="hero-rating-num">5.000+</div>
+          <div class="hero-rating-sub">khách hàng tin dùng</div>
+        </div>
       </div>
     </div>
   </section>
@@ -2365,16 +3769,16 @@
     </div>
   </div>
 
-  <!-- PHILOSOPHY -->
+  <!-- PHILOSOPHY / BRAND STORY -->
   <section class="philosophy" id="about">
     <div class="philosophy-text reveal">
-      <div class="section-label">Triết lý thương hiệu</div>
-      <h2>Thuần Khiết Từ <em>Đất Mẹ</em></h2>
-      <p>Lá trầu không – loại thảo dược quen thuộc trong văn hóa Việt Nam – chứa đựng hàm lượng cao các hoạt chất kháng
-        khuẩn, chống viêm và chống oxy hóa tự nhiên. Mộc Trầu khai thác sức mạnh tiềm ẩn của thiên nhiên, mang đến cho
-        bạn làn da khỏe đẹp từ gốc rễ.</p>
-      <p>Chúng tôi tin rằng vẻ đẹp thực sự đến từ sự hài hòa giữa con người và thiên nhiên – không cần hóa chất, không
-        cần can thiệp nhân tạo, chỉ cần sự tinh khiết nguyên bản.</p>
+      <div class="section-label">Câu chuyện thương hiệu</div>
+      <h2>Từ Khu Vườn Của <em>Bà Ngoại</em></h2>
+      <p>Mộc Trầu bắt đầu từ một buổi chiều thơ ấu — khi bà ngoại hái những chiếc lá trầu xanh mướt, giã nhuyễn đắp lên
+        vết thương cho cháu. Chỉ qua một đêm, da lành hẳn. Không thuốc, không hóa chất. Chỉ là thiên nhiên.</p>
+      <p>Hai mươi năm sau, câu hỏi ấy vẫn còn đó: <em style="font-style:italic;color:var(--gold)">"Tại sao một chiếc lá
+          lại có thể làm điều mà bao nhiêu loại kem đắt tiền không làm được?"</em> Và đó là lúc Mộc Trầu ra đời — để
+        mang bí quyết dân gian của bà vào một chai skincare hiện đại, tinh tế.</p>
       <div class="philosophy-features">
         <div class="feat">
           <div class="feat-icon">🌿</div>
@@ -2459,6 +3863,7 @@
           <img src="images/z7796173775557_c56f30f6afef167b21aec95a61f9487a.jpg" alt="Botanical Micellar Cleansing Water"
             style="object-position: center top;">
           <div class="product-tag">Bán chạy</div>
+          <div class="sale-badge">-15%</div>
         </div>
         <div class="product-info">
           <div class="product-name">Botanical Micellar Cleansing Water</div>
@@ -2471,7 +3876,7 @@
             <span class="benefit-tag">100% Thiên Nhiên</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">285.000đ <span>/ 150ml</span></div>
+            <div class="product-price"><span class="price-old">179.000đ</span>149.000đ <span>/ 150ml</span></div>
             <button class="add-btn" onclick="addToCart('Botanical Micellar Cleansing Water')">+</button>
           </div>
         </div>
@@ -2481,6 +3886,7 @@
       <div class="product-card reveal">
         <div class="product-img" style="background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);">
           <img src="images/z7796173777382_71af9a1f8c619ccf67a292e655e6d8e2.jpg" alt="Soothing Cleanser">
+          <div class="sale-badge">-10%</div>
         </div>
         <div class="product-info">
           <div class="product-name">Soothing Cleanser</div>
@@ -2492,7 +3898,7 @@
             <span class="benefit-tag">Minimize Pores</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">265.000đ <span>/ 250ml</span></div>
+            <div class="product-price"><span class="price-old">165.000đ</span>139.000đ <span>/ 250ml</span></div>
             <button class="add-btn" onclick="addToCart('Soothing Cleanser')">+</button>
           </div>
         </div>
@@ -2514,7 +3920,7 @@
             <span class="benefit-tag">Brighten</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">320.000đ <span>/ 80ml</span></div>
+            <div class="product-price"><span class="price-old">215.000đ</span>179.000đ <span>/ 80ml</span></div>
             <button class="add-btn" onclick="addToCart('Detox Mask')">+</button>
           </div>
         </div>
@@ -2534,7 +3940,7 @@
             <span class="benefit-tag">Kháng Khuẩn</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">245.000đ <span>/ 400ml</span></div>
+            <div class="product-price"><span class="price-old">155.000đ</span>129.000đ <span>/ 400ml</span></div>
             <button class="add-btn" onclick="addToCart('Sữa Tắm Lá Trầu')">+</button>
           </div>
         </div>
@@ -2555,9 +3961,154 @@
             <span class="benefit-tag">Calm Redness</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">195.000đ <span>/ 30ml</span></div>
+            <div class="product-price"><span class="price-old">189.000đ</span>159.000đ <span>/ 30ml</span></div>
             <button class="add-btn" onclick="addToCart('Spot Treatment')">+</button>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section class="combos" id="combos">
+    <div class="combos-header reveal">
+      <div class="section-label">Ưu đãi đặc biệt</div>
+      <h2>Combo <em>Tiết Kiệm</em></h2>
+      <p>Kết hợp sản phẩm để chăm sóc da toàn diện — giảm sâu hơn, quà tặng kèm theo</p>
+      <div class="combo-timer-bar">
+        <div class="combo-timer-dot"></div>
+        🔥 Flash Sale đang diễn ra · Ưu đãi có hạn · Chỉ hôm nay
+      </div>
+    </div>
+    <div class="combos-grid">
+
+      <!-- Combo 1: Làm sạch cơ bản -->
+      <div class="combo-card reveal">
+        <div class="combo-img-strip">
+          <div class="product-thumb">
+            <img src="images/z7796173775557_c56f30f6afef167b21aec95a61f9487a.jpg" alt="Cleansing Water">
+          </div>
+          <div class="combo-plus">+</div>
+          <div class="product-thumb">
+            <img src="images/z7796173777382_71af9a1f8c619ccf67a292e655e6d8e2.jpg" alt="Soothing Cleanser">
+          </div>
+        </div>
+        <div class="combo-body">
+          <div class="combo-name">Combo Làm Sạch</div>
+          <div class="combo-desc">Bộ đôi làm sạch hoàn hảo — tẩy trang sâu buổi tối, rửa mặt dịu nhẹ buổi sáng. Da luôn
+            sạch, không kích ứng.</div>
+          <div class="combo-includes">
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Cleansing Water 150ml
+            </div>
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Soothing Cleanser 250ml
+            </div>
+          </div>
+          <div class="combo-pricing">
+            <div class="combo-price-new">249.000đ</div>
+            <div class="combo-price-old">288.000đ</div>
+          </div>
+          <div class="combo-save-tag">🔖 Tiết kiệm 39.000đ (-14%)</div>
+          <div class="combo-gift">
+            <div class="combo-gift-icon">🎁</div>
+            <div>Tặng kèm <strong>túi vải Mộc Trầu</strong> cao cấp + mẫu thử Spot Treatment</div>
+          </div>
+          <button class="combo-btn"
+            onclick="addComboToCart('Combo Làm Sạch', 249000, ['Cleansing Water 150ml','Soothing Cleanser 250ml'])">Mua
+            Combo Ngay</button>
+        </div>
+      </div>
+
+      <!-- Combo 2: Bestseller Routine Da Mụn -->
+      <div class="combo-card bestseller reveal">
+        <div class="combo-popular-tag">⭐ Phổ biến nhất</div>
+        <div class="combo-img-strip">
+          <div class="product-thumb">
+            <img src="images/z7796173775557_c56f30f6afef167b21aec95a61f9487a.jpg" alt="Cleansing Water">
+          </div>
+          <div class="combo-plus">+</div>
+          <div class="product-thumb">
+            <img src="images/z7796173775558_a59171635cf63e5bfc49a0f47281b102.jpg" alt="Detox Mask">
+          </div>
+          <div class="combo-plus">+</div>
+          <div class="product-thumb">
+            <img src="images/z7796173785993_b75c945324a5e94b77345b374b302175.jpg" alt="Spot Treatment">
+          </div>
+        </div>
+        <div class="combo-body">
+          <div class="combo-name">Combo Trị Mụn Chuyên Sâu</div>
+          <div class="combo-desc">Bộ 3 sản phẩm khắc phục mụn từ gốc — làm sạch vi khuẩn, thải độc lỗ chân lông, xử lý
+            mụn điểm. Hiệu quả rõ sau 7 ngày.</div>
+          <div class="combo-includes">
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Cleansing Water 150ml
+            </div>
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Detox Mask 80ml
+            </div>
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Spot Treatment 30ml
+            </div>
+          </div>
+          <div class="combo-pricing">
+            <div class="combo-price-new">420.000đ</div>
+            <div class="combo-price-old">487.000đ</div>
+          </div>
+          <div class="combo-save-tag">🔥 Tiết kiệm 67.000đ (-14%)</div>
+          <div class="combo-gift">
+            <div class="combo-gift-icon">🎁</div>
+            <div>Tặng kèm <strong>hộp quà Mộc Trầu</strong> + mặt nạ giấy trầu không 5 miếng</div>
+          </div>
+          <button class="combo-btn"
+            onclick="addComboToCart('Combo Trị Mụn Chuyên Sâu', 420000, ['Cleansing Water','Detox Mask','Spot Treatment'])">Mua
+            Combo Ngay</button>
+        </div>
+      </div>
+
+      <!-- Combo 3: Full Body Care -->
+      <div class="combo-card reveal">
+        <div class="combo-img-strip">
+          <div class="product-thumb">
+            <img src="images/z7796173777382_71af9a1f8c619ccf67a292e655e6d8e2.jpg" alt="Soothing Cleanser">
+          </div>
+          <div class="combo-plus">+</div>
+          <div class="product-thumb">
+            <img src="images/z7796173794385_183c45728de6f780f41eb675931ecc16.jpg" alt="Sữa tắm">
+          </div>
+          <div class="combo-plus">+</div>
+          <div class="product-thumb">
+            <img src="images/z7796173775558_a59171635cf63e5bfc49a0f47281b102.jpg" alt="Detox Mask">
+          </div>
+        </div>
+        <div class="combo-body">
+          <div class="combo-name">Combo Chăm Sóc Toàn Thân</div>
+          <div class="combo-desc">Từ mặt đến body — chăm sóc da từ A đến Z bằng thảo dược thiên nhiên. Lý tưởng cho
+            người mới bắt đầu với skincare sạch.</div>
+          <div class="combo-includes">
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Soothing Cleanser 250ml
+            </div>
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Sữa Tắm Lá Trầu 400ml
+            </div>
+            <div class="combo-item-row">
+              <div class="combo-item-dot"></div>Detox Mask 80ml
+            </div>
+          </div>
+          <div class="combo-pricing">
+            <div class="combo-price-new">385.000đ</div>
+            <div class="combo-price-old">447.000đ</div>
+          </div>
+          <div class="combo-save-tag">💎 Tiết kiệm 62.000đ (-14%)</div>
+          <div class="combo-gift">
+            <div class="combo-gift-icon">🎁</div>
+            <div>Tặng kèm <strong>bộ khăn mặt bamboo</strong> + thẻ tư vấn da miễn phí</div>
+          </div>
+          <button class="combo-btn"
+            onclick="addComboToCart('Combo Chăm Sóc Toàn Thân', 385000, ['Soothing Cleanser','Sữa Tắm Lá Trầu','Detox Mask'])">Mua
+            Combo Ngay</button>
         </div>
       </div>
 
@@ -2569,50 +4120,131 @@
     <div class="ing-header reveal">
       <div class="section-label">Thành phần</div>
       <h2>Sức Mạnh Từ Thiên Nhiên</h2>
-      <p>Các hoạt chất quý giá được chiết xuất và bảo toàn nguyên vẹn</p>
+      <p>Mỗi hoạt chất được chọn lọc kỹ càng, chiết xuất lạnh để bảo toàn 100% dưỡng chất quý giá</p>
     </div>
     <div class="ing-grid reveal">
+
+      <!-- STAR INGREDIENT -->
+      <div class="ing-item star">
+        <div class="ing-icon-wrap">🌿</div>
+        <div class="ing-content">
+          <div class="ing-label">Nguyên liệu chủ lực</div>
+          <div class="ing-name">Lá Trầu Không</div>
+          <div class="ing-benefit">Bí quyết dân gian nghìn năm của người Việt — chiết xuất Chavicol &amp; Eugenol kháng
+            khuẩn tự nhiên mạnh mẽ, ức chế vi khuẩn gây mụn, chống viêm, làm dịu da nhạy cảm. Nghiên cứu 2022 cho thấy
+            hiệu quả ức chế 94% vi khuẩn P. acnes.</div>
+          <div class="ing-stats">
+            <div class="ing-stat">
+              <div class="ing-stat-num">94%</div>
+              <div class="ing-stat-label">Kháng khuẩn</div>
+            </div>
+            <div class="ing-stat">
+              <div class="ing-stat-num">100%</div>
+              <div class="ing-stat-label">Tự nhiên</div>
+            </div>
+            <div class="ing-stat">
+              <div class="ing-stat-num">3×</div>
+              <div class="ing-stat-label">Chống oxy hóa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 1 -->
       <div class="ing-item">
-        <div class="ing-icon">🌿</div>
-        <div class="ing-name">Lá Trầu Không</div>
-        <div class="ing-benefit">Kháng khuẩn, chống viêm, giảm mụn hiệu quả từ chiết xuất Chavicol & Eugenol tự nhiên
+        <div class="ing-icon-wrap">💧</div>
+        <div class="ing-name">Aloe Vera</div>
+        <div class="ing-benefit">Dưỡng ẩm sâu, làm dịu da kích ứng, thúc đẩy tái tạo tế bào da nhanh chóng</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Dưỡng ẩm</span><span>95%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:95%"></div>
+          </div>
         </div>
       </div>
       <div class="ing-item">
-        <div class="ing-icon">💧</div>
-        <div class="ing-name">Aloe Vera</div>
-        <div class="ing-benefit">Dưỡng ẩm sâu, làm dịu da kích ứng, thúc đẩy tái tạo tế bào da</div>
-      </div>
-      <div class="ing-item">
-        <div class="ing-icon">🌸</div>
+        <div class="ing-icon-wrap">🌸</div>
         <div class="ing-name">Niacinamide</div>
         <div class="ing-benefit">Làm đều màu da, thu nhỏ lỗ chân lông, tăng cường hàng rào bảo vệ da</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Làm sáng</span><span>88%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:88%"></div>
+          </div>
+        </div>
       </div>
       <div class="ing-item">
-        <div class="ing-icon">✨</div>
+        <div class="ing-icon-wrap">✨</div>
         <div class="ing-name">Vitamin C</div>
-        <div class="ing-benefit">Chống oxy hóa mạnh mẽ, làm sáng da, ngăn ngừa lão hóa sớm</div>
+        <div class="ing-benefit">Chống oxy hóa mạnh mẽ, làm sáng da tự nhiên, ngăn ngừa lão hóa sớm</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Chống oxy hóa</span><span>92%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:92%"></div>
+          </div>
+        </div>
       </div>
+
+      <!-- Row 2 -->
       <div class="ing-item">
-        <div class="ing-icon">🌾</div>
+        <div class="ing-icon-wrap">🌾</div>
         <div class="ing-name">Bèo Tấm</div>
-        <div class="ing-benefit">Giàu amino acid, peptide tự nhiên hỗ trợ phục hồi và tái tạo da</div>
+        <div class="ing-benefit">Giàu amino acid &amp; peptide tự nhiên, hỗ trợ phục hồi và tái tạo tế bào da</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Phục hồi</span><span>82%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:82%"></div>
+          </div>
+        </div>
       </div>
       <div class="ing-item">
-        <div class="ing-icon">🫚</div>
+        <div class="ing-icon-wrap">🫚</div>
         <div class="ing-name">Dầu Jojoba</div>
-        <div class="ing-benefit">Cân bằng bã nhờn, dưỡng ẩm không nhờn rít, phù hợp mọi loại da</div>
+        <div class="ing-benefit">Cân bằng bã nhờn, dưỡng ẩm không nhờn rít, lý tưởng cho mọi loại da</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Cân bằng</span><span>90%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:90%"></div>
+          </div>
+        </div>
       </div>
       <div class="ing-item">
-        <div class="ing-icon">🍵</div>
+        <div class="ing-icon-wrap">🍵</div>
         <div class="ing-name">Trà Xanh</div>
-        <div class="ing-benefit">Polyphenol chống oxy hóa, bảo vệ da khỏi tác hại từ tia UV</div>
+        <div class="ing-benefit">Polyphenol chống oxy hóa mạnh, bảo vệ da khỏi tác hại tia UV &amp; ô nhiễm</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Bảo vệ</span><span>87%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:87%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="ing-item" style="grid-column:1/3;">
+        <div class="ing-icon-wrap">🌼</div>
+        <div class="ing-name">Cúc La Mã</div>
+        <div class="ing-benefit">Làm dịu tức thì, giảm đỏ, chống viêm tự nhiên — đặc biệt an toàn cho làn da nhạy cảm và
+          da trẻ em</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Làm dịu</span><span>96%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:96%"></div>
+          </div>
+        </div>
       </div>
       <div class="ing-item">
-        <div class="ing-icon">🌼</div>
-        <div class="ing-name">Cúc La Mã</div>
-        <div class="ing-benefit">Làm dịu, giảm đỏ, chống viêm tự nhiên cho làn da nhạy cảm</div>
+        <div class="ing-icon-wrap">🧬</div>
+        <div class="ing-name">Hyaluronic Acid</div>
+        <div class="ing-benefit">Giữ ẩm gấp 1000 lần trọng lượng, căng mọng da tức thì từ lớp sâu nhất</div>
+        <div class="ing-bar-wrap">
+          <div class="ing-bar-label"><span>Căng ẩm</span><span>98%</span></div>
+          <div class="ing-bar">
+            <div class="ing-bar-fill" style="width:98%"></div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -3013,7 +4645,7 @@
         <li>Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp</li>
       </ul>
       <h3>Có ship toàn quốc không?</h3>
-      <p>Có. Giao hàng toàn quốc 63 tỉnh thành trong 2–5 ngày làm việc. Miễn phí ship cho đơn từ 300.000đ.</p>
+      <p>Có. Giao hàng toàn quốc 63 tỉnh thành trong 2–5 ngày làm việc. Miễn phí ship cho đơn từ 249.000đ.</p>
       <h3>Có thể đặt hàng số lượng lớn không?</h3>
       <p>Có hỗ trợ đơn hàng wholesale và spa/salon. Vui lòng liên hệ hello@moctrau.vn để được báo giá đặc biệt.</p>
     </div>
@@ -3097,7 +4729,7 @@
       <button class="info-box-close" onclick="closeInfoModal()">✕</button>
       <div class="info-label">Chính sách</div>
       <h2>Chính Sách Giao Hàng</h2>
-      <div class="highlight-box">🚚 Miễn phí vận chuyển toàn quốc cho đơn hàng từ 300.000đ.</div>
+      <div class="highlight-box">🚚 Miễn phí vận chuyển toàn quốc cho đơn hàng từ 249.000đ.</div>
       <h3>Thời Gian Giao Hàng</h3>
       <ul>
         <li><strong>Hà Nội & TP.HCM:</strong> 1–2 ngày làm việc</li>
@@ -3106,8 +4738,8 @@
       </ul>
       <h3>Phí Vận Chuyển</h3>
       <ul>
-        <li>Đơn dưới 300.000đ: 30.000đ (nội thành) / 40.000đ (ngoại tỉnh)</li>
-        <li>Đơn từ 300.000đ: Miễn phí toàn quốc</li>
+        <li>Đơn dưới 249.000đ: 30.000đ (nội thành) / 40.000đ (ngoại tỉnh)</li>
+        <li>Đơn từ 249.000đ: Miễn phí toàn quốc</li>
       </ul>
       <h3>Theo Dõi Đơn Hàng</h3>
       <p>Sau khi đặt hàng thành công, bạn sẽ nhận SMS/email chứa mã vận đơn để theo dõi trực tuyến. Hotline hỗ trợ: 1800
@@ -3176,8 +4808,8 @@
         id: 1,
         name: 'Botanical Micellar Cleansing Water',
         tag: 'Bán chạy',
-        price: 285000,
-        priceText: '285.000đ',
+        price: 149000,
+        priceText: '149.000đ',
         volume: '150ml',
         img: 'images/z7796173775557_c56f30f6afef167b21aec95a61f9487a.jpg',
         bg: 'linear-gradient(135deg,#e8f5e9,#c8e6c9)',
@@ -3194,8 +4826,8 @@
         id: 2,
         name: 'Soothing Cleanser',
         tag: 'Sữa rửa mặt',
-        price: 265000,
-        priceText: '265.000đ',
+        price: 139000,
+        priceText: '139.000đ',
         volume: '250ml',
         img: 'images/z7796173777382_71af9a1f8c619ccf67a292e655e6d8e2.jpg',
         bg: 'linear-gradient(135deg,#f1f8e9,#dcedc8)',
@@ -3212,8 +4844,8 @@
         id: 3,
         name: 'Detox Mask',
         tag: 'Mới ra mắt',
-        price: 320000,
-        priceText: '320.000đ',
+        price: 179000,
+        priceText: '179.000đ',
         volume: '80ml',
         img: 'images/z7796173775558_a59171635cf63e5bfc49a0f47281b102.jpg',
         bg: 'linear-gradient(135deg,#f9f6f0,#ede8de)',
@@ -3230,8 +4862,8 @@
         id: 4,
         name: 'Sữa Tắm Lá Trầu',
         tag: 'Betel Body Wash',
-        price: 245000,
-        priceText: '245.000đ',
+        price: 129000,
+        priceText: '129.000đ',
         volume: '400ml',
         img: 'images/z7796173794385_183c45728de6f780f41eb675931ecc16.jpg',
         bg: 'linear-gradient(135deg,#f0f4ec,#dde8d5)',
@@ -3248,8 +4880,8 @@
         id: 5,
         name: 'Spot Treatment',
         tag: 'Hot',
-        price: 195000,
-        priceText: '195.000đ',
+        price: 159000,
+        priceText: '159.000đ',
         volume: '30ml',
         img: 'images/z7796173785993_b75c945324a5e94b77345b374b302175.jpg',
         bg: 'linear-gradient(135deg,#f3f8f0,#e2eedb)',
@@ -3413,6 +5045,34 @@
       updateCartUI();
     }
 
+    // ── COMBO ADD TO CART ──
+    function addComboToCart(comboName, price, items) {
+      // Add as a single combo item
+      const comboId = 'combo_' + comboName.replace(/\s+/g, '_');
+      const existing = cart.find(i => i.id === comboId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: comboId,
+          name: comboName,
+          tag: 'Combo',
+          price: price,
+          priceText: price.toLocaleString('vi-VN') + 'đ',
+          volume: items.join(' + '),
+          img: 'images/z7796173775557_c56f30f6afef167b21aec95a61f9487a.jpg',
+          bg: 'linear-gradient(135deg,#1a3a2a,#2d5a3d)',
+          qty: 1
+        });
+      }
+      updateCartUI();
+      const notif = document.getElementById('cartNotif');
+      document.getElementById('cartMsg').textContent = `✓ Đã thêm "${comboName}" vào giỏ!`;
+      notif.classList.add('show');
+      setTimeout(() => notif.classList.remove('show'), 3000);
+      setTimeout(() => openCart(), 500);
+    }
+
     // ── CHECKOUT ──
     function openCheckout() {
       closeCart();
@@ -3522,6 +5182,30 @@
       document.getElementById('infoModal').classList.remove('active');
       document.body.style.overflow = '';
     };
+
+    // ── MOBILE HAMBURGER ──
+    function toggleMobileMenu() {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('hamburger');
+      links.classList.toggle('mobile-open');
+      btn.classList.toggle('open');
+      document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    }
+    function closeMobileMenu() {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('hamburger');
+      links.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close menu on outside click
+    document.addEventListener('click', function (e) {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('hamburger');
+      if (links && links.classList.contains('mobile-open')) {
+        if (!links.contains(e.target) && !btn.contains(e.target)) closeMobileMenu();
+      }
+    });
   </script>
 </body>
 
